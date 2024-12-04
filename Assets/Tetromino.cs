@@ -10,6 +10,8 @@ public class Tetromino : MonoBehaviour
 
     public bool swapInputs = false;
 
+    [SerializeField] List<GameObject> parts;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,15 @@ public class Tetromino : MonoBehaviour
         if (canMove)
         {
             rb.velocity = -transform.up;
+        }
+
+        if(!parts[0].gameObject.activeSelf && !parts[1].gameObject.activeSelf && !parts[2].gameObject.activeSelf)
+        {
+            foreach(GameObject part in parts)
+            {
+                part.SetActive(true);
+            }
+            Reset();
         }
     }
 
@@ -74,6 +85,7 @@ public class Tetromino : MonoBehaviour
 
         //reset code here!
         canMove = true;
+        gameObject.SetActive(false);
 
 
         ObjectPool.Instance.returnToPool(gameObject);

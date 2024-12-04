@@ -365,6 +365,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   swapInputs: 0
+  parts:
+  - {fileID: 2449462206760156174}
+  - {fileID: 4281827341936312348}
+  - {fileID: 1483641838748270417}
 --- !u!54 &5789358354963795961
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -2536,7 +2536,7 @@ MonoBehaviour:
   poolObjects:
   - {fileID: 7434595237379387734, guid: 275aea1185fd75e498ba05f6f00bf031, type: 3}
   - {fileID: 7434595237379387734, guid: 07cc5a015083a9642b4d655ccaf6a3bf, type: 3}
-  size: 10
+  size: 20
   _player: {fileID: 225282674}
 --- !u!4 &1954667069
 Transform:
