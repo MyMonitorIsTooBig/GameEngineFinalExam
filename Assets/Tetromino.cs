@@ -23,6 +23,7 @@ public class Tetromino : MonoBehaviour
         {
             rb = GetComponent<Rigidbody>();
         }
+        //rb.velocity = transform.
         rb.velocity = -transform.up;
     }
 
@@ -85,6 +86,8 @@ public class Tetromino : MonoBehaviour
 
         //reset code here!
         canMove = true;
+        transform.position = new Vector3(0, 0, 0);
+        transform.rotation = Quaternion.identity;
         gameObject.SetActive(false);
 
 
