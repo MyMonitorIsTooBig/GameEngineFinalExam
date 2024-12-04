@@ -12,6 +12,8 @@ public class Tetromino : MonoBehaviour
 
     [SerializeField] List<GameObject> parts;
 
+    [SerializeField] GameObject rotationP;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +71,8 @@ public class Tetromino : MonoBehaviour
     {
         if (canMove)
         {
-            transform.Rotate(new Vector3(0,0,90));
+            rotationP.transform.Rotate(new Vector3(0, 0, 90));
+            
         }
     }
 
@@ -77,7 +80,7 @@ public class Tetromino : MonoBehaviour
     {
         if (canMove)
         {
-            transform.Rotate(new Vector3(0, 0, -90));
+            rotationP.transform.Rotate(new Vector3(0, 0, -90));
         }
     }
 
@@ -87,7 +90,7 @@ public class Tetromino : MonoBehaviour
         //reset code here!
         canMove = true;
         transform.position = new Vector3(0, 0, 0);
-        transform.rotation = Quaternion.identity;
+        rotationP.transform.rotation = Quaternion.identity;
         gameObject.SetActive(false);
 
 

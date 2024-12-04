@@ -15,7 +15,7 @@ public class Line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cubes[0].enteredCube != null && cubes[1].enteredCube != null && cubes[2].enteredCube != null)
+        if(cubes[0].enteredCube != null && cubes[1].enteredCube != null && cubes[2].enteredCube != null && cubes[3].enteredCube != null && cubes[4].enteredCube != null)
         {
             deleteLine();
         }
