@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : Singleton<ObjectPool>
+public class ObjectPool : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> poolObjects;
@@ -10,6 +10,39 @@ public class ObjectPool : Singleton<ObjectPool>
     private Queue<GameObject> pool;
     [SerializeField] private int size;
     [SerializeField] private Controller _player;
+
+
+    private static ObjectPool _instance;
+    public static ObjectPool Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<ObjectPool>();
+                if (_instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    _instance = obj.AddComponent<ObjectPool>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+    public void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this as ObjectPool;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +62,12 @@ public class ObjectPool : Singleton<ObjectPool>
         if (Input.GetKeyDown(KeyCode.W))
         {
             pullFromPool();
+        }
+
+        if(!_player)
+        {
+            _player = FindObjectOfType<Controller>();
+
         }
     }
 
